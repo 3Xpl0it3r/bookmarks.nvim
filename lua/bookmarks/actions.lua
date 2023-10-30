@@ -43,7 +43,6 @@ M.regist_marks = function()
 	-- if annotation not existed, then add
 	local root_dir = vim.lsp.buf.list_workspace_folders()
 	if root_dir == nil or #root_dir == 0 then
-		notifier.notify(message_failed .. "No Lsp Found", notifier.Level.warn, title)
 		return
 	end
 	local reg_file = root_dir[1] .. "/" .. cache_file
@@ -59,16 +58,14 @@ M.regist_marks = function()
 
 	vim.ui.input({ prompt = "Input BookMark Annotation" }, function(bk_name)
 		if bk_name == nil then
-			return notifier.notify(message_failed .. "Cancel ", notifier.Level.info, title)
+            return
 		end
 
 		if map.has_key(registry["registry"], bk_name) then
-			notifier.notify(message_failed .. "bookmark" .. bk_name .. "has existed", notifier.Level.error, title)
 			return
 		end
 
 		if bk_name == nil then
-			notifier.notify(message_failed .. "canceled", notifier.Level.warn, title)
 		end
 
 		-- get filename and current lines in current buffer
@@ -89,7 +86,6 @@ M.regist_marks = function()
 		-- vim.fn.JsonDumpF(reg_file, registry)
 		json.dump(reg_file, registry)
 
-		notifier.notify(message_success, notifier.Level.info, title)
 	end)
 end
 
@@ -98,14 +94,12 @@ M.operator = function()
 
 	local root_dir = vim.lsp.buf.list_workspace_folders()
 	if root_dir == nil or #root_dir == 0 then
-		notifier.notify("No Lsp Found", notifier.Level.warn, title)
 		return
 	end
 	local reg_file = root_dir[1] .. "/" .. cache_file
 
 	if path.exists(reg_file) == false then
 		init()
-		notifier.notify("Cache File is not existed", "warn", title)
 	end
 
 	local registry = json.load(reg_file)
@@ -162,11 +156,6 @@ M.operator = function()
 
 					-- persistent cache storage
 					assert(json.dump(reg_file, registry))
-					notifier.notify(
-						"Delelte Bookmark: " .. selection.value .. " Successfully",
-						notifier.Level.info,
-						title
-					)
 				end)
 				mapfn("n", "r", function() -- rename bookmark
 					actions.close(prompt_bufnr)

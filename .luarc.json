@@ -1,0 +1,21 @@
+{
+    "workspace.library": [
+        "/Users/l0calh0st/.config/nvim",
+        "/Users/l0calh0st/.local/share/nvim/lazy/lazy.nvim",
+        "/Users/l0calh0st/.local/share/nvim/lazy/cmp-nvim-lsp",
+        "/Users/l0calh0st/.local/share/nvim/lazy/nvim-notify",
+        "/Users/l0calh0st/.local/share/nvim/lazy/plenary.nvim",
+        "/Users/l0calh0st/.local/share/nvim/lazy/nvim-lspconfig",
+        "/Users/l0calh0st/.local/share/nvim/lazy/which-key.nvim",
+        "/Users/l0calh0st/.local/share/nvim/lazy/vim-wakatime",
+        "/Users/l0calh0st/.local/share/nvim/lazy/SmoothCursor.nvim",
+        "/Users/l0calh0st/.local/share/nvim/lazy/nvim-treesitter",
+        "/Users/l0calh0st/.local/share/nvim/lazy/nvim-ts-context-commentstring",
+        "/Users/l0calh0st/.local/share/nvim/lazy/aerial.nvim",
+        "/opt/homebrew/Cellar/neovim/0.9.4/share/nvim/runtime",
+        "/opt/homebrew/Cellar/neovim/0.9.4/lib/nvim",
+        "/Users/l0calh0st/.local/state/nvim/lazy/readme",
+        "/Users/l0calh0st/.local/share/nvim/lazy/cmp-nvim-lsp/after",
+        "${3rd}/luassert/library"
+    ]
+}
